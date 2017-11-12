@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Layout Example</title>
+</head>
+<body>
+    
+    <div id="header">
+        <h1>Layout example in HTML</h1>
+    </div>
+
+    <div id="content">
+        @RenderBody()
+    </div>
+
+    <div>
+        @RenderSection("Test", required: false) 
+    </div>
+
+
+    <div id="Footer">
+        <p>This is Footer</p>
+    </div>
+
+</body>
+</html>

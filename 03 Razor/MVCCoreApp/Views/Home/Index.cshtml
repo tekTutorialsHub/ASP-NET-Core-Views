@@ -1,0 +1,136 @@
+﻿<p>Razor Example</p>
+
+
+<h3>Code Block</h3>
+
+@{
+
+    var cust = new MVCCoreApp.Models.Customer()
+    {
+        name = "Rahul",
+        address = "Dravid"
+
+    };
+
+
+}
+
+<h3>Code Expression</h3>
+
+<p>@cust.name</p>
+<p>@cust.address</p>
+
+
+<h3>Variables </h3>
+
+<!-- Storing a string -->
+@{ var message = "Welcome to our website"; }
+
+<!-- Storing a date -->
+@{ DateTime date = DateTime.Now; }
+
+<p>@message</p>
+<p> The current date is @date</p>
+
+
+@{ var helloWorld = @"Hello ""World"""; }
+<p>@helloWorld</p>
+
+@{ var Path = @"C:\Windows\"; }
+<p>The path is: @Path</p>
+
+
+
+@{ var symbol = "You can print @ in html"; }
+<p>The @@symbol is: @symbol</p>
+
+
+<h3>Comment</h3>
+
+@*
+    This is comment
+*@
+
+
+<h3>HTML inside code block</h3>
+
+@{
+    <p>Hello from the Code block</p>
+}
+
+<h3>Single Line Text</h3>
+
+@{
+    @:Hello from the Code block using @@:
+}
+
+<h3>Multiline Text</h3>
+
+@{
+    <text>Hello from the
+    multiline text
+    </text>
+}
+
+
+<h3>If Then </h3>
+
+@*@{
+        var value = 200;
+        if (value > 100)
+        {
+            <p>The value is greater than 100 </p>
+        }
+        else
+        {
+            <p>This value is less than 100.</p>
+        }
+
+    }*@
+
+
+@{int value = 200;}
+@if (value > 100)
+{
+    <p>This value is greater than 100.</p>
+}
+else
+{
+    <p>This value is less than 100.</p>
+}
+
+
+<h3>Switch </h3>
+
+@switch (value)
+{
+
+    case 0:
+        @: value is Zero
+        break;
+    case 100:
+        <p>Value is 100 </p>
+        break;
+    case 200:
+        <p>Value is @value </p>
+        break;
+    case 300:
+        <text>Value is 300</text>
+        break;
+    default:
+        <p>Invalid Value </p>
+        break;
+
+
+}
+
+
+<h3>HTML Encoding</h3>
+
+@{
+    string encodedMessage = "<script>alert('You are under cross-site script injection attack');</script>";
+}
+<span>@encodedMessage </span>
+
+
+<span>@Html.Raw(encodedMessage)</span>
